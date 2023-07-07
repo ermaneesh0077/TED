@@ -4,3 +4,6 @@ ConsoleApp1/bin/Debug/net6.0/ConsoleApp1.deps.json
 ConsoleApp1/obj/ConsoleApp1.csproj.nuget.g.targets
 ConsoleApp1/obj/ConsoleApp1.csproj.nuget.g.props
 ConsoleApp1/obj/ConsoleApp1.csproj.nuget.dgspec.json
+/FacilietesAllDummy/.vs
+/FacilietesAllDummy/FacilietesAllDummy/bin
+/FacilietesAllDummy/packages
