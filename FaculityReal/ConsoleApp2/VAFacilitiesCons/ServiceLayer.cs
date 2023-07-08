@@ -17,23 +17,7 @@ namespace ConsoleApp2
             SqlConnection con = new SqlConnection(connectionString);
             FacilitiesResponseModel myDeserializedClass = JsonConvert.DeserializeObject<FacilitiesResponseModel>(jsonresponse);
             bool res = CreateInsertQuery(myDeserializedClass, connectionString);
-            //Data Source=DESKTOP-54C3IUO\\SQLEXPRESS; Initial Catalog=TED;Trusted_Connection=True;
-            //SqlCommand cmd = new SqlCommand(query, con);
-            //try
-            //{
-            //    con.Open();
-            //    cmd.ExecuteNonQuery();
-            //    Console.WriteLine("Records Inserted Successfully");
-            //}
-            //catch (SqlException e)
-            //{
-            //    Console.WriteLine("Error Generated. Details: " + e.ToString());
-            //}
-            //finally
-            //{
-            //    con.Close();
-            //    Console.ReadKey();
-            //}
+             
             return res;
         }
 
@@ -47,7 +31,7 @@ namespace ConsoleApp2
             {
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
-
+                query.Append("truncate table FacilitiesAllTable1;");
 
                 foreach (var item in FacilitiesResponseModel.features)
                 {
@@ -60,11 +44,19 @@ namespace ConsoleApp2
                     var propertiesfacility_type = item.properties.facility_type;
                     var propertiestime_zone=item.properties.time_zone;
                     var propertiesoperating_statuscode = item.properties.operating_status.code;
-                    query.Append($"INSERT INTO [FacilitiesAllTable1] ([type],geometrytype,[geometrycoordinates0],[geometrycoordinates1],[propertiesid],[propertiesname],[propertiesfacility_type],propertiestime_zone,[propertiesoperating_statuscode]) VALUES( '{type}','{geoType}',{coordinates0},{coordinates1},'{propertiesid}','{propertiesname}','{propertiesfacility_type}','{propertiestime_zone}','{propertiesoperating_statuscode}')");
-                    SqlCommand cmd = new SqlCommand(query.ToString(), con);
-                    cmd.ExecuteNonQuery();
-                    res = true;
+                    
+                    var propertiesdetailed_services=item.properties.detailed_services;
+                    query.Append($"INSERT INTO [FacilitiesAllTable1] " +
+                        $"([type],geometrytype,[geometrycoordinates0],[geometrycoordinates1],[propertiesid],[propertiesname],[propertiesfacility_type],propertiestime_zone," +
+                        $"[propertiesoperating_statuscode]" +
+                        $",[propertiesdetailed_services]) " +
+                        $"VALUES( '{type}','{geoType}',{coordinates0},{coordinates1},'{propertiesid}','{propertiesname}','{propertiesfacility_type}','{propertiestime_zone}','{propertiesoperating_statuscode}'," +
+                        $"'{propertiesdetailed_services}');");
+                    
                 }
+                SqlCommand cmd = new SqlCommand(query.ToString(), con);
+                cmd.ExecuteNonQuery();
+                res = true;
 
                 return res;
 
