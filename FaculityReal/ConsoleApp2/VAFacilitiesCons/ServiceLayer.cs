@@ -42,16 +42,29 @@ namespace ConsoleApp2
                     var propertiesid = item.properties.id;
                     var propertiesname = item.properties.name.Replace("'", "");
                     var propertiesfacility_type = item.properties.facility_type;
-                    var propertiestime_zone=item.properties.time_zone;
                     var propertiesoperating_statuscode = item.properties.operating_status.code;
+                    var propertiesdetailed_services = string.Empty; //item.properties.detailed_services;
+                    var propertiesclassification = item.properties.classification;
+                    var propertieswebsite = item.properties.website;
+                    var propertiestime_zone=item.properties.time_zone;
+                    var propertiesaddressmailingzip=item.properties.address.mailing.zip;
+                    var propertiesaddressmailingcity = item.properties.address.mailing.city;
+                    var propertiesaddressmailingstate=item.properties.address.mailing.state;
                     
-                    var propertiesdetailed_services=item.properties.detailed_services;
-                    query.Append($"INSERT INTO [FacilitiesAllTable1] " +
-                        $"([type],geometrytype,[geometrycoordinates0],[geometrycoordinates1],[propertiesid],[propertiesname],[propertiesfacility_type],propertiestime_zone," +
-                        $"[propertiesoperating_statuscode]" +
-                        $",[propertiesdetailed_services]) " +
-                        $"VALUES( '{type}','{geoType}',{coordinates0},{coordinates1},'{propertiesid}','{propertiesname}','{propertiesfacility_type}','{propertiestime_zone}','{propertiesoperating_statuscode}'," +
-                        $"'{propertiesdetailed_services}');");
+                        query.Append($"INSERT INTO [FacilitiesAllTable1] " +
+                            $"([type],geometrytype,[geometrycoordinates0],[geometrycoordinates1],[propertiesid],[propertiesname],[propertiesfacility_type],propertiestime_zone," +
+                            $"[propertiesoperating_statuscode]" +
+                            $",[propertiesdetailed_services]" +
+                            $",[propertiesclassification]" +
+                            $",[propertieswebsite]" +
+                            $",[propertiesaddressmailingzip],[propertiesaddressmailingcity],[propertiesaddressmailingstate]) " +
+                            $"VALUES( '{type}','{geoType}',{coordinates0},{coordinates1},'{propertiesid}','{propertiesname}','{propertiesfacility_type}','{propertiestime_zone}'" +
+                            $",'{propertiesoperating_statuscode}'," +
+                            $"'{propertiesdetailed_services}'" +
+                            $",'{propertiesclassification}'" +
+                            $",'{propertieswebsite}'" +
+                            $",'{propertiesaddressmailingzip}','{propertiesaddressmailingcity}','{propertiesaddressmailingstate}');");
+                     
                     
                 }
                 SqlCommand cmd = new SqlCommand(query.ToString(), con);
@@ -63,7 +76,7 @@ namespace ConsoleApp2
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex);
 
             }
             return res;
