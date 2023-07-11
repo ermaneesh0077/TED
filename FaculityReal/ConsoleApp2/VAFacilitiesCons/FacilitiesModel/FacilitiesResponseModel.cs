@@ -101,6 +101,8 @@ namespace ConsoleApp2.FacilitiesModel
 
     public class Satisfaction
     {
+        public string effective_date { get; set; }
+
     }
 
     public class Services
