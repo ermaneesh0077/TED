@@ -37,7 +37,7 @@ namespace ConsoleApp2
                 foreach (var item in FacilitiesResponseModel.features)
                 {
                     i++;
-                    if (i > 0)
+                    if (i > 10)
                     {
 
 
@@ -51,23 +51,22 @@ namespace ConsoleApp2
                         var propertiesname = item.properties.name.Replace("'", "");
                         var propertiesfacility_type = item.properties.facility_type;
                         var propertiesoperating_statuscode = item.properties.operating_status.code;
-                        var propertiesdetailed_services = string.Empty; //item.properties.detailed_services;
+                        var propertiesdetailed_services = string.Empty; //item.properties.detailed_services; // All Data is NULL
                         var propertiesclassification = item.properties.classification;
                         var propertieswebsite = item.properties.website;
                         var propertiestime_zone = item.properties.time_zone;
                         var propertiesaddressmailingzip = item.properties.address.mailing.zip;
-                        var propertiesaddressmailingcity = item.properties.address.mailing.city?.Replace("'", "")?.Replace(",", " ");
+                        var propertiesaddressmailingcity = item.properties.address.mailing.city?.Replace("'", " ")?.Replace(",", "").Replace("&", " and ");
                         var propertiesaddressmailingstate = item.properties.address.mailing.state;
-                        var propertiesaddressmailingaddress_1 = item.properties.address.mailing.address_1?.Replace("'", "");
-                        var propertiesaddressmailingaddress_2 = item.properties.address.mailing.address_2?.Replace("'", "")?.Replace(",", " ");
+                        var propertiesaddressmailingaddress_1 = item.properties.address.mailing.address_1?.Replace("'", " ")?.Replace(",", "").Replace("&", " and ");
+                        var propertiesaddressmailingaddress_2 = item.properties.address.mailing.address_2 ?.Replace("'", " ")?.Replace(",", "").Replace("&", " and ");
                         var propertiesaddressmailingaddress_3 = item.properties.address.mailing.address_3;
-
 
                         var propertiesaddressphysicalzip = item.properties.address.physical.zip;
                         var propertiesaddressphysicalcity = item.properties.address.physical.city?.Replace("'", "")?.Replace(",", " ");
                         var propertiesaddressphysicalstate = item.properties.address.physical.state?.Replace("'", "")?.Replace(",", " ");
-                        var propertiesaddressphysicaladdress_1 = item.properties.address.physical.address_1?.Replace("'", " ")?.Replace(",", "");
-                        var propertiesaddressphysicaladdress_2 = item.properties.address.physical.address_2?.Replace("'", " ")?.Replace(",", " ");
+                        var propertiesaddressphysicaladdress_1 = item.properties.address.physical.address_1?.Replace("'", " ")?.Replace(",", "").Replace("&", " and ");
+                        var propertiesaddressphysicaladdress_2 = item.properties.address.physical.address_2?.Replace("'", " ")?.Replace(",", "").Replace("&", " and ");
                         var propertiesaddressphysicaladdress_3 = item.properties.address.physical.address_3;
                         var propertiesphonefax = item.properties.phone.fax;
                         var propertiesphonemain = item.properties.phone.main;
@@ -121,7 +120,7 @@ namespace ConsoleApp2
                             propertiesservicesbenefits14 = item.properties.services.benefits.Count > 14 ? item.properties.services.benefits[14] : string.Empty;
 
                         }
-                        var propertiesoperating_statusadditional_info = item.properties.operating_status.additional_info?.Replace("'", " ");
+                        var propertiesoperating_statusadditional_info = item.properties.operating_status.additional_info?.Replace("'", "")?.Replace(",", " ");
                         var propertieshoursfriday2 = item.properties.hours.Friday;
                         var propertieshoursmonday2 = item.properties.hours.Monday;
                         var propertieshourssunday2 = item.properties.hours.Sunday;
@@ -129,37 +128,37 @@ namespace ConsoleApp2
                         var propertieshourssaturday2 = item.properties.hours.Saturday;
                         var propertieshoursthursday2 = item.properties.hours.Thursday;
                         var propertieshourswednesday2 = item.properties.hours.Wednesday;
-                        var propertiesphonepharmacy = string.Empty; //item.properties.phone.p;
-                        var propertiesphoneafter_hours = string.Empty;
-                        var propertiesphonepatient_advocate = string.Empty;
-                        var propertiesphonemental_health_clinic = string.Empty;
-                        var propertiesphoneenrollment_coordinator = string.Empty;
-                        var propertiesphonehealth_connect = string.Empty;
-                        var propertiesserviceshealth0 = string.Empty; //item.properties.services;
+                        var propertiesphonepharmacy = item.properties.phone.pharmacy?.Replace("'", "")?.Replace(",", " "); //item.properties.phone.p;
+                        var propertiesphoneafter_hours = item.properties.phone.after_hours?.Replace("'", "")?.Replace(",", " ");  
+                        var propertiesphonepatient_advocate = item.properties.phone.patient_advocate?.Replace("'", "")?.Replace(",", " ");
+                        var propertiesphonemental_health_clinic = item.properties.phone.mental_health_clinic?.Replace("'", "")?.Replace(",", " ");
+                        var propertiesphoneenrollment_coordinator = item.properties.phone.enrollment_coordinator?.Replace("'", "")?.Replace(",", " ");
+                        var propertiesphonehealth_connect = (string)item.properties.phone.health_connect?.Replace("'", "")?.Replace(",", " ");// -- NEED 
+                        var propertiesserviceshealth0 = string.Empty;  //item.properties.services;
                         var propertiesserviceshealth1 = string.Empty;
-                        var propertiesserviceshealth2 = string.Empty; ;
-                        var propertiesserviceshealth3 = string.Empty; ;
-                        var propertiesserviceshealth4 = string.Empty; ;
-                        var propertiesserviceshealth5 = string.Empty; ;
-                        var propertiesserviceshealth6 = string.Empty; ;
-                        var propertiesserviceshealth7 = string.Empty; ;
-                        var propertiesserviceshealth8 = string.Empty; ;
-                        var propertiesserviceshealth9 = string.Empty; ;
-                        var propertiesserviceshealth10 = string.Empty; ;
-                        var propertiesserviceshealth11 = string.Empty; ;
-                        var propertiesserviceshealth12 = string.Empty; ;
-                        var propertiesserviceshealth13 = string.Empty; ;
-                        var propertiesserviceshealth14 = string.Empty; ;
-                        var propertiesserviceshealth15 = string.Empty; ;
-                        var propertiesserviceshealth16 = string.Empty; ;
-                        var propertiesserviceshealth17 = string.Empty; ;
-                        var propertiesserviceshealth18 = string.Empty; ;
+                        var propertiesserviceshealth2 = string.Empty; 
+                        var propertiesserviceshealth3 = string.Empty; 
+                        var propertiesserviceshealth4 = string.Empty; 
+                        var propertiesserviceshealth5 = string.Empty; 
+                        var propertiesserviceshealth6 = string.Empty; 
+                        var propertiesserviceshealth7 = string.Empty; 
+                        var propertiesserviceshealth8 = string.Empty; 
+                        var propertiesserviceshealth9 = string.Empty; 
+                        var propertiesserviceshealth10 = string.Empty;
+                        var propertiesserviceshealth11 = string.Empty;
+                        var propertiesserviceshealth12 = string.Empty;
+                        var propertiesserviceshealth13 = string.Empty;
+                        var propertiesserviceshealth14 = string.Empty;
+                        var propertiesserviceshealth15 = string.Empty;
+                        var propertiesserviceshealth16 = string.Empty;
+                        var propertiesserviceshealth17 = string.Empty;
+                        var propertiesserviceshealth18 = string.Empty;
 
-                        var propertiesserviceslast_updated = string.Empty;
-                        var propertiessatisfactionhealthprimary_care_urgent = 0;
-                        var propertiessatisfactionhealthprimary_care_routine = 0;
-                        var propertiessatisfactionhealthspecialty_care_urgent = 0;
-                        var propertiessatisfactionhealthspecialty_care_routine = 0;
+                        var propertiesserviceslast_updated = item.properties.services.last_updated;
+                        var propertiessatisfactionhealthprimary_care_urgent = item.properties.satisfaction?.health?.primary_care_urgent??0;//  Need to Test
+                        var propertiessatisfactionhealthprimary_care_routine = item.properties.satisfaction?.health?.primary_care_routine??0;
+                        var propertiessatisfactionhealthspecialty_care_urgent = item.properties.satisfaction?.health?.specialty_care_urgent??0;
+                        var propertiessatisfactionhealthspecialty_care_routine = item.properties.satisfaction?.health?.specialty_care_routine??0;
                         var propertiessatisfactioneffective_date = item.properties.satisfaction.effective_date;
 
                         var propertieswait_timeshealth0service = string.Empty;

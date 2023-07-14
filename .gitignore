@@ -11,3 +11,9 @@ ConsoleApp1/obj/ConsoleApp1.csproj.nuget.dgspec.json
 /FaculityReal/ConsoleApp2/packages
 /FaculityReal/ConsoleApp2/VAFacilitiesCons/obj
 /FaculityReal/ConsoleApp2/VAFacilitiesCons/bin/Debug
+/ImportFacultiesApi/ImportFacultiesApi/.vs
+/ImportFacultiesApi/ImportFacultiesApi/ImportFacultiesApi/bin
+/ImportFacultiesApi/ImportFacultiesApi/ImportFacultiesApi/Content
+/ImportFacultiesApi/ImportFacultiesApi/ImportFacultiesApi/fonts
+/ImportFacultiesApi/ImportFacultiesApi/ImportFacultiesApi/obj/Debug
+/ImportFacultiesApi/ImportFacultiesApi/packages

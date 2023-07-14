@@ -24,6 +24,9 @@ namespace ConsoleApp2.FacilitiesModel
         public string type { get; set; }
         public Geometry geometry { get; set; }
         public Properties properties { get; set; }
+      
+
+
     }
 
     public class Geometry
@@ -63,6 +66,14 @@ namespace ConsoleApp2.FacilitiesModel
     {
         public string fax { get; set; }
         public string main { get; set; }
+        public string pharmacy { get; set; }
+        public string after_hours { get; set; }
+        public string patient_advocate { get; set; }
+        public string mental_health_clinic { get; set; }
+        public string enrollment_coordinator { get; set; }
+        public string health_connect { get; set; }
+
+
     }
 
     public class Physical
@@ -88,26 +99,41 @@ namespace ConsoleApp2.FacilitiesModel
         public Hours hours { get; set; }
         public object operational_hours_special_instructions { get; set; }
         public Services services { get; set; }
-        public Satisfaction satisfaction { get; set; }
+      
         public WaitTimes wait_times { get; set; }
         public object mobile { get; set; }
         public string active_status { get; set; }
         public OperatingStatus operating_status { get; set; }
         public object detailed_services { get; set; }
         public object visn { get; set; }
+        public Satisfaction satisfaction { get; set; }
     }
 
     
 
+    
     public class Satisfaction
     {
+        public Health health { get; set; }
         public string effective_date { get; set; }
+    }
+    public class Health
+    {
+        public double primary_care_urgent { get; set; }
+        public double primary_care_routine { get; set; }
 
+        public double specialty_care_urgent { get; set; }
+        public double specialty_care_routine { get; set; }
+
+          
     }
 
     public class Services
     {
         public List<string> benefits { get; set; }
+        public string last_updated { get; set; }
+        public Satisfaction satisfaction { get; set; }
+
     }
 
     public class WaitTimes
